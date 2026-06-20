@@ -12,3 +12,10 @@ def create_user(db,user):
     db.commit()
     db.refresh(user_db)
     return user_db
+
+def get_user_by_username(db,username):
+    return db.query(User).filter(User.username == username).first()
+def get_user_by_email(db,email):
+    return db.query(User).filter(User.email == email).first()
+def get_user_by_id(db,user_id):
+    return db.query(User).filter(User.id == user_id).first()
